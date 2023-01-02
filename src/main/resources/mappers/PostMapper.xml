@@ -25,7 +25,6 @@
             , #{title}
             , #{content}
             , #{writer}
-            , #{writer}
             , 0
             , #{noticeYn}
             , 0
@@ -52,7 +51,7 @@
             , title = #{title}
             , content = #{content}
             , writer = #{writer}
-            , notice_yn = #{notice_yn}
+            , notice_yn = #{noticeYn}
         WHERE
             id = #{id}
     </update>
