@@ -17,7 +17,7 @@
     </sql>
 
     <!-- 게시글 저장 -->
-    <insert id="save" parameterType="com.java.crud.domain.post.PostRequest">
+    <insert id="save" parameterType="com.java.crud.domain.post.PostRequest" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO tb_post (
             <include refid="postColumns" />
         ) VALUES (
@@ -44,7 +44,7 @@
     </select>
 
     <!-- 게시글 수정 -->
-    <update id="update" parameterType="com.java.crud.domain.post.PostRequest">
+    <update id="update" parameterType="com.java.crud.domain.post.PostRequest" useGeneratedKeys="true" keyProperty="id">
         UPDATE tb_post
         SET 
             modified_date = NOW()
