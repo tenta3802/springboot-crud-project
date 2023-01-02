@@ -50,4 +50,11 @@ public class PostServiceTest {
         Long id = postService.updatePost(params);
         System.out.println("수정된 게시글 ID : " + id);
     }
+
+    @Test
+    void delete() {
+        System.out.println("삭제 전 게시글 수: " + postService.findAllPost().size());
+        postService.deletePost(3L);
+        System.out.println("삭제 후 게시글 수: " + postService.findAllPost().size());
+    }
 }
