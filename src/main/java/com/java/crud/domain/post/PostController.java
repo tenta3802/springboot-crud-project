@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class PostController {
@@ -29,5 +31,12 @@ public class PostController {
     public String savePost(final PostRequest params) {
         postService.savePost(params);
         return "redirect:/post/list.do";
+    }
+
+    @GetMapping(value = "/post/list.do")
+    public String openPostList(Model model) {
+        List<PostResponse> posts = postService.findAllPost();
+        model.addAttribute("posts", posts);
+        return "post/list";
     }
 }

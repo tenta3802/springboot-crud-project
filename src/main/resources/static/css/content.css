@@ -61,6 +61,7 @@ section:first-child, #tabmenu + section {margin-top:0;}
 .tb_row td {height:40px;}
 .tb_row .btns {height:38px; line-height:38px;}
 .viewcon {min-height:100px;}
+
 /* 게시글정보 */
 .add_info {font-size:13px; font-weight:300; margin-top:10px;}
 .add_info > span {position:relative; display:inline-block; padding:0 10px; color:#999;}
