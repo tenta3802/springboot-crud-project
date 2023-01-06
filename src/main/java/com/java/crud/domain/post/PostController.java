@@ -46,4 +46,10 @@ public class PostController {
         model.addAttribute("post", post);
         return "post/view";
     }
+
+    @PostMapping(value = "/post/update.do")
+    public String updatePost(final PostRequest params) {
+        postService.updatePost(params);
+        return "redirect:/post/list.do";
+    }
 }
