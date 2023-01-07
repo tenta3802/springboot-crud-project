@@ -1,10 +1,12 @@
 package com.java.crud.domain.post;
 
+import com.java.crud.common.MessageDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -28,9 +30,11 @@ public class PostController {
 
     // 신규 게시글 생성
     @PostMapping(value = "/post/save.do")
-    public String savePost(final PostRequest params) {
+    public String savePost(final PostRequest params, Model model) {
         postService.savePost(params);
-        return "redirect:/post/list.do";
+        MessageDto message = new MessageDto("게시글 생성이 완료되었습니다." ,
+                "/post/list.do", RequestMethod.GET, null);
+        return showMessageAndRedirect(message, model);
     }
 
     @GetMapping(value = "/post/list.do")
@@ -48,14 +52,24 @@ public class PostController {
     }
 
     @PostMapping(value = "/post/update.do")
-    public String updatePost(final PostRequest params) {
+    public String updatePost(final PostRequest params, Model model) {
         postService.updatePost(params);
-        return "redirect:/post/list.do";
+        MessageDto message = new MessageDto("게시글 수정이 완료되었습니다." ,
+                "/post/list.do", RequestMethod.GET, null);
+        return showMessageAndRedirect(message, model);
     }
 
     @PostMapping(value = "/post/delete.do")
-    public String deletePost(@RequestParam final Long id) {
+    public String deletePost(@RequestParam final Long id, Model model) {
         postService.deletePost(id);
-        return "redirect:/post/list.do";
+        MessageDto message = new MessageDto("게시글 삭제가 완료되었습니다." ,
+                "/post/list.do", RequestMethod.GET, null);
+        return showMessageAndRedirect(message, model);
+    }
+
+    // 사용자에게 메시지를 전달하고 페이지를 리다이렉트 한다.
+    private String showMessageAndRedirect(final MessageDto params, Model model){
+        model.addAttribute("params", params);
+        return "common/messageRedirect";
     }
 }
