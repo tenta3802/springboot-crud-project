@@ -1,6 +1,6 @@
 package com.java.crud.config;
 
-import interceptor.LoggerInterceptor;
+import com.java.crud.interceptor.LoggerInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

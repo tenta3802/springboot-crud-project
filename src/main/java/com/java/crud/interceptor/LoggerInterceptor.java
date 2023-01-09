@@ -1,4 +1,4 @@
-package interceptor;
+package com.java.crud.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -24,5 +24,6 @@ public class LoggerInterceptor implements HandlerInterceptor {
         HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
         log.debug("==================== END ======================");
         log.debug("===============================================");
+        HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
     }
 }
