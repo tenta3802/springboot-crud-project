@@ -1,13 +1,11 @@
 package com.java.crud.domain.post;
 
-import com.java.crud.common.MessageDto;
+import com.java.crud.common.dto.MessageDto;
+import com.java.crud.common.dto.SearchDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,8 +36,8 @@ public class PostController {
     }
 
     @GetMapping(value = "/post/list.do")
-    public String openPostList(Model model) {
-        List<PostResponse> posts = postService.findAllPost();
+    public String openPostList(@ModelAttribute("params") final SearchDto params, Model model) {
+        List<PostResponse> posts = postService.findAllPost(params);
         model.addAttribute("posts", posts);
         return "post/list";
     }

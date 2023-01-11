@@ -27,8 +27,8 @@ public class PostMapperTest {
         params.setNoticeYn(false);
         postMapper.save(params);
 
-        List<PostResponse> posts = postMapper.findAll();
-        System.out.println("전체 게시글 개수는 : " + posts.size() + "개입니다.");
+        //List<PostResponse> posts = postMapper.findAll();
+        //System.out.println("전체 게시글 개수는 : " + posts.size() + "개입니다.");
     }
 
     @Test
@@ -54,10 +54,10 @@ public class PostMapperTest {
         postMapper.update(params);
     }
 
-    @Test
-    void delete() {
-        System.out.println("이전 게시글 개수: " + postMapper.findAll().size());
-        postMapper.deleteById(2L);
-        System.out.println("삭제 후 게시글 개수: " + postMapper.findAll().size());
-    }
+//    @Test
+//    void delete() {
+//        System.out.println("이전 게시글 개수: " + postMapper.findAll().size());
+//        postMapper.deleteById(2L);
+//        System.out.println("삭제 후 게시글 개수: " + postMapper.findAll().size());
+//    }
 }

@@ -1,4 +1,4 @@
-package com.java.crud.common;
+package com.java.crud.common.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
