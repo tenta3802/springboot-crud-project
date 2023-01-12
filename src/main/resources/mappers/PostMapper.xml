@@ -76,7 +76,7 @@
             delete_yn = 0
         ORDER BY
             id DESC
-        LIMIT #{offset}, #{recordSize} <!--offset 페이지당 시작 번호 -->
+        LIMIT #{pagination.limitStart}, #{recordSize} <!--offset 페이지당 시작 번호 -->
     </select>
 
     <!-- 게시글 수 카운팅 -->

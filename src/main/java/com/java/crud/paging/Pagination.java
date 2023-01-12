@@ -17,6 +17,7 @@ public class Pagination {
     public Pagination(int totalRecordCount, SearchDto params) {
         if (totalRecordCount > 0) {
             this.totalRecordCount = totalRecordCount;
+            this.calculation(params);
 
         }
     }
@@ -41,11 +42,12 @@ public class Pagination {
         endPage = startPage + params.getPageSize() - 1;
 
         // 끝 페이지가 전체 페이지 수보다 큰 경우, 끝 페이지 전체 페이지 수 저장
-        if(endPage > totalPageCount) {
+        if (endPage > totalPageCount) {
             endPage = totalPageCount;
         }
 
-        // LIMIT 시작 위치 계산
+        // LIMIT 시작 위치 계산(몇번째 데이터부터 조회할 것인지)
+        // 자신의 현재 페이지를 기준 하단 페이지 번호 범위
         limitStart = (params.getPage() - 1) * params.getRecordSize();
 
         // 이전 페이지 존재 여부 확인

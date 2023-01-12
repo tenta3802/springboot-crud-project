@@ -1,5 +1,6 @@
 package com.java.crud.common.dto;
 
+import com.java.crud.paging.Pagination;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ public class SearchDto {
     private int pageSize;       // 화면 하단에 출력할 페이지 사이즈
     private String keyword;     // 검색 키워드
     private String searchType;  // 검색 유형
+    private Pagination pagination;
 
     public SearchDto() {
         this.page = 1;
